@@ -41,7 +41,14 @@ function App() {
         <div className="main-container">
           <div className="col-left">
             {data.categories.map((elem, index) => {
-              return <Categories category={elem} key={index} />;
+              return (
+                <Categories
+                  category={elem}
+                  key={index}
+                  items={items}
+                  setItems={setItems}
+                />
+              );
             })}
           </div>
           <div className="col-right">

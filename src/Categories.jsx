@@ -15,7 +15,11 @@ const Categories = ({ category, items, setItems }) => {
                   onClick={(event) => {
                     event.preventDefault();
                     const itemsCopy = [...items];
-                    itemsCopy.push(elem.title);
+                    itemsCopy.push({
+                      title: elem.title,
+                      price: elem.price,
+                      counter: 1,
+                    });
                     setItems(itemsCopy);
                   }}
                 >

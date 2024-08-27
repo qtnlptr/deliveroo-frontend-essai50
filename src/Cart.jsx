@@ -1,17 +1,38 @@
-const Cart = () => {
+const Cart = ({ items, setItems }) => {
+  // console.log(items);
   return (
     <div className="cart">
       <div className="cart-details">
         <div className="items">
-          <div className="item-details">
-            <div className="counter">
-              <p>-</p>
-              <p>0</p>
-              <p>+</p>
+          {items.map((elem, index) => (
+            <div className="item-details" key={index}>
+              <div className="counter">
+                <button
+                  onClick={() => {
+                    const newItem = [...items];
+                    console.log(elem.counter);
+                    newItem.counter = elem.counter - 1;
+                    // elem.counter - 1;
+                    // const newItems = [...items];
+                    // newItems.
+                    // setItems(elem.counter - 1);
+                  }}
+                >
+                  -
+                </button>
+                <p>{elem.counter}</p>
+                <button
+                  onClick={() => {
+                    setItems(elem.counter - 1);
+                  }}
+                >
+                  +
+                </button>
+              </div>
+              <p className="item-name">{elem.title}</p>{" "}
+              <p className="price">{elem.price}€</p>{" "}
             </div>
-            <p className="item-name">Name</p>
-            <p className="price">XX€</p>
-          </div>
+          ))}
           <div className="cart-result">
             <div className="subtotal">
               <p>Sous-total</p>
@@ -32,4 +53,5 @@ const Cart = () => {
     </div>
   );
 };
+
 export default Cart;
